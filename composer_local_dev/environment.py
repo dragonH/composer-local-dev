@@ -625,6 +625,9 @@ class Environment:
                     ports=ports,
                     mem_limit=memory_limit,
                     detach=True,
+                    extra_hosts={
+                        "host.docker.internal": "host-gateway"
+                    }
                 )
             except docker_errors.APIError as err:
                 logging.debug(
